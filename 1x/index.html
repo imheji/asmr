@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+
+
+
+	<title>ASMR</title>
+
+	<style type="text/css">
+
+	html{font-family: 'Noto Sans KR', sans-serif;}
+
+	body {margin: 0; background-image: url(bg.jpg);	background-size:cover;}
+		
+	section{width: 460px; background :black; margin: auto;
+		text-align: center;}
+
+	img{padding-top: 15px; cursor: pointer;}
+
+
+
+
+
+	footer { text-align: center; margin: auto; padding-bottom: 30px; }
+
+
+
+
+	.scale{width: auto;}
+	.scale:hover {transform: scale(1.05);}
+
+
+
+
+
+
+
+
+	.s-1 { width: 80%; }
+
+
+	.top {padding-top: 70px;}
+
+	.absolute{display: block; position: absolute;}
+
+
+
+
+
+
+
+	.slider{ 
+
+		-webkit-appearance : none;
+		width: 472px;
+		height: 20px;
+		background-color: black;
+		outline: none;
+
+		-webkit-transition : 0.2s;
+		transition: opacity 0.2s;
+		border-radius: 30px;
+
+		 }
+
+
+	.sliderContainer {
+		width: 75%; margin-top: 200px; text-align: center;
+		margin: auto; padding-top: 30px;  padding-bottom: 80px;
+	}
+
+	.slider:hover {
+		opacity: 1;
+	}
+
+	.slider::-webkit-slider-thumb{
+		-webkit-appearance: none;
+		appearance:none;
+
+		width : 52px;
+		height : 52px;
+		background : url('pointer.png')50%; 
+		border-radius: 0%
+		border: 5px solid black;
+		cursor: pointer;
+		
+
+		
+	}
+
+	.slider:: -moz-range-thumb {
+
+
+		width : 52px;
+		height : 52px;
+		background : url('pointer.png')50%; 
+		border-radius: 0%
+
+
+
+
+	}
+
+
+
+
+
+
+	.flex{display: flex;}
+
+	
+	.col-1 {width: 70px; }
+
+	.col-2 {width: 190px; }
+	.col-3 {width: 270px; }
+
+	.col-4 {width: 260px; }
+	.col-5 {width: 200px; }
+
+	.col-6 {width: 460px; }
+
+
+
+
+
+	.b-1 {background-color:#fdb8ee;}
+	.b-2 {background-color:#fdd710;}
+	.b-3 {background-color:#ff9132;}
+	.b-4 {background:black;}
+	.b-5 {background-color:#32b16a;}
+	.b-6 {background-color:#88d4ff;}
+
+
+	.h-1 {height: 140px;}
+	.h-2 {height: 410px;}
+	.h-3 {height: 160px;}
+	.h-4 {height: 250px;}
+	.h-5 {height: 150px;}
+
+	.line {border : 5px solid black;}
+	.line-top {border-top: 5px solid black; }
+	.line-right {border-right: : 5px solid black; }
+	.line-left {border-left: : 5px solid black; }
+
+
+
+	.rotate { animation: rotation 2s linear infinite; animation-direction: alternate; animation-timing-function: ease-in-out;}
+	
+
+		@keyframes rotation { from {transform: rotate(0deg);} to {transform: rotate(8deg);} }
+
+
+
+
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+
+
+	<div class="top"></div>
+
+	<section class="line">
+
+		<section class="flex h-1">
+			<div class="col-4 b-1">
+				
+				<img id="musicBut" src="1a.png" class="scale">
+				<audio id="musicSnd" src= "1.mp3"></audio>
+
+
+			</div>
+			<div class="col-5 b-2">
+				<img id="music2But" src="2a.png" class="scale">
+				<audio id="music2Snd" src= "2.mp3"></audio>
+
+			</div>
+		
+		</section>
+
+		<section class="flex h-2 line-top ">
+
+			<div class="col-2 b-3">
+
+				<img id="music3But" src="3a.png" class="scale">
+				<audio id="music3Snd" src= "3.mp3"></audio>
+
+			</div>
+
+			<div class="col-3">
+
+				<div class= "b-4 h-3"> 
+
+					<img id="music4But" src="4.png"  class="absolute rotate">
+			
+
+				 </div>
+				<div class="b-5 h-4" >
+
+					<img id="music5But" src="5.png" class="scale">
+					<audio id="music5Snd" src= "5.mp3"></audio>
+
+				 </div>
+			</div>
+
+		</section>
+
+		<section class="flex h-5 line-top">
+
+			<div class="col-6 b-6">
+
+					<img id="music6But" src="6a.png" class="scale">
+					<audio id="music6Snd" src= "6.mp3"></audio>
+
+			</div>
+			
+		</section>
+
+
+	</section>
+
+
+
+	
+
+	<div class="sliderContainer">
+
+	<input id="vol" type="range" max="100" min="0" value="0" id="myRange" class="slider">
+
+
+	</div>
+
+
+	
+
+
+
+
+	<script type="text/javascript">
+
+		vol.value = 100;
+	
+
+		vol.oninput = function(){
+			musicSnd.volume = vol.value / 100;
+	
+			music2Snd.volume = vol.value / 100;
+		
+			music3Snd.volume = vol.value / 200;
+	
+			music5Snd.volume = vol.value / 100;
+		
+			music6Snd.volume = vol.value / 100;
+		}
+
+
+		var state = false;
+
+		musicBut.onclick = function(){
+	
+			if(!state){
+
+			musicSnd.play();
+			musicBut.src = "1.png";
+			state = true;}
+
+			else {
+			musicSnd.pause();
+			musicBut.src = "1a.png";
+			state = false;
+			}
+		}
+
+
+		music2But.onclick = function(){
+	
+			if(!state){
+
+			music2Snd.play();
+			music2But.src = "2.png";
+			state = true;}
+
+			else {
+			music2Snd.pause();
+			music2But.src = "2a.png";
+			state = false;
+			}
+		}
+
+
+		music3But.onclick = function(){
+	
+			if(!state){
+
+			music3Snd.play();
+			music3But.src = "3.png";
+			state = true;}
+
+			else {
+			music3Snd.pause();
+			music3But.src = "3a.png";
+			state = false;
+			}
+		}
+		
+
+
+
+
+		music5But.onclick = function(){
+	
+			if(!state){
+
+			music5Snd.play();
+			music5But.src = "5a.png";
+			state = true;}
+
+			else {
+			music5Snd.pause();
+			music5But.src = "5.png";
+			state = false;
+			}
+		}
+
+
+		music6But.onclick = function(){
+	
+			if(!state){
+
+			music6Snd.play();
+			music6But.src = "6.png";
+			state = true;}
+
+			else {
+			music6Snd.pause();
+			music6But.src = "6a.png";
+			state = false;
+			}
+		}
+
+
+
+
+
+	
+
+	</script>
+
+
+
+
+</body>
+</html>
